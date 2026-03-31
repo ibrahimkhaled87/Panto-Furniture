@@ -8,21 +8,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: poppins;
-    width: 100vw;
-    box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 .app {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
     .hero {
-        width: 100vw;
-        height: 100vh;
         padding: 0 2em;
+        height: 40em;
         box-sizing: border-box;
         background-image: url("./images/img-hero.png");
         background-size: 210%;
         background-repeat: no-repeat;
-        background-position: -10em;
         color: white;
         h1 {
             font-size: 2.6em;
