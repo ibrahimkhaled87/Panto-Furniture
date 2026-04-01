@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --transX: 0em;
+  --pad: 2em;
 }
 
 body {
@@ -15,12 +16,10 @@ body {
   overflow-x: hidden;
 }
 .app .hero {
-  padding: 0 2em;
   height: 40em;
-  box-sizing: border-box;
+  padding: 0 var(--pad);
   background-image: url("./images/img-hero.png");
-  background-size: 210%;
-  background-repeat: no-repeat;
+  background-size: cover;
   color: white;
 }
 .app .hero h1 {
@@ -33,11 +32,13 @@ body {
   width: 80%;
 }
 .app .hero .search {
+  justify-self: center;
   display: flex;
-  align-items: center;
-  flex-direction: row;
+  align-items: end;
+  flex-direction: column;
   justify-content: center;
   margin-top: 2.5em;
+  position: relative;
 }
 .app .hero .search input {
   padding: 1em;
@@ -48,15 +49,19 @@ body {
   height: 2em;
   width: 70vw;
   color: white;
+  max-width: 30em;
+}
+.app .hero .search input::placeholder {
+  color: rgb(167, 167, 167);
 }
 .app .hero .search button {
+  position: absolute;
+  right: 0.3em;
   background-color: orange;
   border: 0;
   width: 3.5em;
   height: 3.5em;
   border-radius: 50%;
-  position: relative;
-  right: 3.9em;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -66,17 +71,23 @@ body {
   width: 2em;
 }
 .app .why {
-  margin-top: 3em;
-  padding: 0 2em;
+  margin: 3em 0 4em;
+  padding: 0 var(--pad);
 }
 .app .why h1 {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+.app .why .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 .app .best-selling {
   height: 90vh;
   background-color: lightgrey;
-  padding: 2em;
-  padding-bottom: 3em;
+  padding-top: 2em !important;
+  padding-bottom: 3em !important;
+  padding: 0 var(--pad);
 }
 .app .best-selling ul {
   list-style: none;
@@ -140,7 +151,7 @@ body {
 }
 .header .nav .mobile-menu {
   position: absolute;
-  right: 2em;
+  right: var(--pad);
   top: 1.5em;
   width: 2em;
   cursor: pointer;
@@ -190,9 +201,6 @@ body {
   display: none;
 }
 
-.card {
-  margin-bottom: 3em;
-}
 .card p {
   width: 85%;
 }
