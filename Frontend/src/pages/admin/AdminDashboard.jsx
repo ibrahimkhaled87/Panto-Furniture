@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utils/axios";
 import { RevenueChart, CategoryChart } from "../../components/ChartComponent";
 import { useEffect, useState } from "react";
 import KpiCard from "../../components/KpiCard";
@@ -11,7 +11,7 @@ function AdminDashboard() {
     useEffect(() => {
         const getRevenue = async () => {
             try {
-                const response = await axios.get("analytics/revenue");
+                const response = await api.get("analytics/revenue");
                 setRevenue(response.data);
             } catch (error) {
                 console.log(error);
@@ -21,7 +21,7 @@ function AdminDashboard() {
 
         const getTotalSales = async () => {
             try {
-                const response = await axios.get("/analytics/revenue");
+                const response = await api.get("/analytics/revenue");
                 const total_sales = response.data.reduce((acc, item) => acc + Number(item.revenue), 0);
                 setTotalSales(total_sales);
             } catch (error) {
@@ -32,7 +32,7 @@ function AdminDashboard() {
 
         const getPending = async () => {
             try {
-                const response = await axios.get("/analytics/pending");
+                const response = await api.get("/analytics/pending");
                 setPending(response.data[0].pending_orders);
             } catch (error) {
                 console.log(error);
@@ -42,7 +42,7 @@ function AdminDashboard() {
 
         const getCategoryPercentages = async () => {
             try {
-                const response = await axios.get("/analytics/categories");
+                const response = await api.get("/analytics/categories");
                 setCategories(response.data);
             } catch (error) {
                 console.log(error);
@@ -68,7 +68,7 @@ function AdminDashboard() {
                 <CategoryChart categoryData={categories} />
             </div>
         </div>
-        Low stock alerts
+        {/* Low stock alerts */}
     </div>
 }
 

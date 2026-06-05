@@ -2,8 +2,7 @@ import { useState, useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import useFetchProducts from "../../hooks/useFetchProducts"
 import DragDropImage from "../../components/DragDropImage"
-import axios from "axios";
-
+import api from "../../utils/axios";
 
 export default function AdminProductEdit() {
     //Get images
@@ -50,7 +49,7 @@ export default function AdminProductEdit() {
         
         try {
             console.log("inside handle add")
-            const response = await axios.patch("/products", formData,
+            const response = await api.patch("/products", formData,
                 {params: {type: info.type}} //destination in query param (if image change)
             );
             alert(response.data);

@@ -32,7 +32,7 @@ export default function UserLayout() {
                 <li><Link className="navbar-item" to="/user/settings">Settings</Link></li>
             </ul>
             <div className="logged-user">
-                <img src="images/profile.svg" alt="" />
+                <img src="/images/profile.svg" alt="" />
                 <div className="info">
                     <h4>{`${payload.f_name} ${payload.l_name}`}</h4>
                     <p>User</p>
@@ -44,7 +44,7 @@ export default function UserLayout() {
             <div className="top-row">
                 <h1>{getTitle()}</h1>
                 <div className="logout" onClick={logout}>
-                    <img src="images/logout.svg" alt="" />
+                    <img src="/images/logout.svg" alt="" />
                     <p>Logout</p>
                 </div>
             </div>

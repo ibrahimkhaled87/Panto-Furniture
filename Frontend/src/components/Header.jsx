@@ -47,7 +47,7 @@ function Header() {
             </div>
             <Link to="/cart" className="no-link">
                 <div className="cartBtn">
-                    <img src="images/bag.svg" alt="" />
+                    <img src="/images/bag.svg" alt="" />
                     <p>{cartCount}</p>
                 </div>
             </Link>

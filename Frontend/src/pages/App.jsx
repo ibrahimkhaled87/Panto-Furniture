@@ -8,7 +8,7 @@ import useDragScroll from "../hooks/useDragScroll";
 import useFetchProducts from "../hooks/useFetchProducts";
 import useTransX from "../hooks/useTransX";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/axios";
 
 function App() {
     // Best selling selected type
@@ -18,7 +18,7 @@ function App() {
     useEffect(() => {
         async function getData() {
             try {
-                const response = await axios.get(`/products/top`, {params: {type: clickedType}});
+                const response = await api.get(`/products/top`, {params: {type: clickedType}});
                 setTopProducts(response.data);
             } catch (error) {
                 console.log(error);

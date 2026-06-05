@@ -1,6 +1,6 @@
 import { useState } from "react"
 import DragDropImage from "../../components/DragDropImage"
-import axios from "axios";
+import api from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminProductAdd() {
@@ -44,7 +44,7 @@ export default function AdminProductAdd() {
         formData.append("quantity", info.quantity);
         try {
             console.log("inside handle add")
-            const response = await axios.post("/products", formData,
+            const response = await api.post("/products", formData,
                 {params: {type: info.type}} //destination in query param
             );
             alert(response.data);

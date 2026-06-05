@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../utils/axios";
 import { createPortal } from "react-dom";
 
 export default function DeleteOverlay({id, onClose}) {
@@ -6,7 +6,7 @@ export default function DeleteOverlay({id, onClose}) {
 
   async function handleConfirm() {
     try {
-      await axios.delete("/products", {data: {id: id}});
+      await api.delete("/products", {data: {id: id}});
       onClose();
     } catch (error) {
 

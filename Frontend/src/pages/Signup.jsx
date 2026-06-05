@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/axios";
 import Header from "../components/Header";
 
 function Signup() {
@@ -19,7 +19,7 @@ function Signup() {
     const signup = async (e) => {
         e.preventDefault(); //stop page refresh
         try {
-            const response = await axios.post("/auth/signup", form);
+            const response = await api.post("/auth/signup", form);
             alert(response.data);
             navigate("/");
         } catch (error) {

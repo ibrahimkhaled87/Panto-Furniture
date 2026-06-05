@@ -14,9 +14,9 @@ function ProductPage() {
 
     //Fetch product images into Arr
     const preparedArr = [
-        "images/image1.jpg",
-        "images/image2.png",
-        "images/image3.png"
+        "/images/image1.jpg",
+        "/images/image2.png",
+        "/images/image3.png"
     ]
     const [imagesArr, setImagesArr] = useState(preparedArr);
     useEffect(() => {

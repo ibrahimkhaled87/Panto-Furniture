@@ -22,7 +22,7 @@ function AdminLayout() {
                 <li><Link className="navbar-item" to="/admin/users">Users</Link></li>
             </ul>
             <div className="logged-user">
-                <img src="images/profile.svg" alt="" />
+                <img src="/images/profile.svg" alt="" />
                 <div className="info">
                     <h4>Ibrahim Khaled</h4>
                     <p>Admin</p>
@@ -34,7 +34,7 @@ function AdminLayout() {
             <div className="top-row">
                 <h1>{getTitle()}</h1>
                 <div className="logout">
-                    <img src="images/logout.svg" alt="" />
+                    <img src="/images/logout.svg" alt="" />
                     <p>Logout</p>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utils/axios";
 import { useState, useEffect } from "react";
 import InfoOverlay from "../../components/InfoOverlay"; 
 import { useNewStatus } from "../../context/NewOrderStatus";
@@ -24,7 +24,7 @@ export default function AdminOrders() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get("/orders", {
+                const response = await api.get("/orders", {
                     params: {
                         ...search.search && {search: search.search},
                         ...search.order_status && {order_status: search.order_status},

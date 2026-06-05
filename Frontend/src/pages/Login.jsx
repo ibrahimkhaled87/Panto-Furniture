@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/axios";
 import Header from "../components/Header";
 
 function Login() {
@@ -20,7 +20,7 @@ function Login() {
         e.preventDefault(); //stop page refresh
         try {
             localStorage.removeItem("token");
-            const response = await axios.post("/auth/login", credintials);
+            const response = await api.post("/auth/login", credintials);
             localStorage.setItem("token", response.data.token);
             alert("Login successful");
             navigate("/user");

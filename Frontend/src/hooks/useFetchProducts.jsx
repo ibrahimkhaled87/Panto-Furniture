@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../utils/axios";
 
 export default function useFetchProducts(search, refresh) {
-    const uploads_path = "http://localhost:5000/uploads/";
+    const uploads_path = `${process.env.REACT_APP_API_URL}/uploads/`;
     const [backendData, setBackendData] = useState();
 
     useEffect(() => {
@@ -10,7 +10,7 @@ export default function useFetchProducts(search, refresh) {
         const fetchData = async () => {
             try {
                 console.log(search);
-                const response = await axios.get("/products", {
+                const response = await api.get("/products", {
                     params: search,    
                     signal: controller.signal
                 });

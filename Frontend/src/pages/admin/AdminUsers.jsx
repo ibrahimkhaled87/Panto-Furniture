@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import axios from "axios";
+import api from "../../utils/axios";
 
 export default function AdminUsers() {
     // Get search values
@@ -20,7 +20,7 @@ export default function AdminUsers() {
     useEffect(() => {
         const getData = async() => {
             try {
-                const response = await axios.get("/users", {params: search});
+                const response = await api.get("/users", {params: search});
                 setUsers(response.data);
             } catch (error) {
                 console.log(error); 

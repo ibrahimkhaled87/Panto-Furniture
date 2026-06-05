@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../../utils/axios";
 import { useEffect, useState } from "react"
 import useTokenDecode from "../../hooks/useTokenDecode";
 
@@ -13,7 +13,7 @@ export default function UserOrderHistory() {
 
         async function getData() {
             try {
-                const response = await axios.get("/orders", {params: {username: payload.username}});
+                const response = await api.get("/orders", {params: {username: payload.username}});
                 setUserOrders(response.data);
             } catch (error) {
                 console.log(error);

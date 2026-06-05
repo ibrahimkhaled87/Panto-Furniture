@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CheckoutItem from "../components/CheckoutItem";
-import axios from "axios";
+import api from "../utils/axios";
 import useFetchGuestCart from "../hooks/useFetchGuestCart";
 import useTokenDecode from "../hooks/useTokenDecode";
 
@@ -45,7 +45,7 @@ function CheckoutPage() {
         }
 
         try {
-            const response = await axios.post("/orders", {...orderInfo, username: payload?.username||"", items: guestCart});
+            const response = await api.post("/orders", {...orderInfo, username: payload?.username||"", items: guestCart});
             if(checkedPayment==="online") {
                 window.location.href =response.data;
             }

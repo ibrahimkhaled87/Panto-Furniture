@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ChartComponent from "./ChartComponent";
-import axios from "axios";
+import api from "../utils/axios";
 
 export default function KpiCard(props) {
     let data = {};

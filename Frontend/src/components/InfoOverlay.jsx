@@ -1,4 +1,4 @@
-import axios from "axios";
+import api from "../utils/axios";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import OrderItem from "./OrderItem";
@@ -15,7 +15,7 @@ export default function InfoOverlay({id, onClose}) {
 
     const getData = async() => {
         try {
-            const response = await axios.get(`/orders/${id}`)
+            const response = await api.get(`/orders/${id}`)
             setBackendData(response.data);
         } catch (error) {
             console.log(error);
@@ -28,7 +28,7 @@ export default function InfoOverlay({id, onClose}) {
     setNewStatus(true);
     const {value} = e.target;
     try {
-        const response = await axios.patch("/orders", {order_status: value, order_id: orderId})
+        const response = await api.patch("/orders", {order_status: value, order_id: orderId})
         alert(response.data);
         setNewStatus(false);
     } catch (error) {

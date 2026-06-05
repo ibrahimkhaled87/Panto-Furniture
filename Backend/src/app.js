@@ -14,7 +14,10 @@ const app = express();
 // Global middleware
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cors())
+app.use(cors({
+    origin: process.env.ALLOWED_ORIGINS?.split(",") || [],
+    credentials: true
+}))
 app.use('/uploads', express.static("./src/uploads"));
 
 // routes
