@@ -45,7 +45,7 @@ function CheckoutPage() {
         }
 
         try {
-            const response = await api.post("/orders", {...orderInfo, username: payload?.username||"", items: guestCart});
+            const response = await api.post("/orders", {...orderInfo, username: payload?.username||null, items: guestCart});
             if(checkedPayment==="online") {
                 window.location.href =response.data;
             }
