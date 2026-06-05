@@ -16,7 +16,7 @@ export default function useFetchProducts(search, refresh) {
                 });
                 setBackendData(response.data);
             } catch (error) {
-                axios.isCancel(error) ? console.log("Previous request canceled") : console.log("Error fetching: "+error);
+                api.isCancel(error) ? console.log("Previous request canceled") : console.log("Error fetching: "+error);
             }
         };
         // 1 - Debounce fetchData call 300ms after last keystroke (i.e. search value change and. re-render)
