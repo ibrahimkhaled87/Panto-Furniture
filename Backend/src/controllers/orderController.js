@@ -69,7 +69,7 @@ export const getOrderInfo = async(req, res) => {
 export const postOrder = async(req, res) => {
     console.log("POST order called");
     console.log(req.body);
-    const {username="", email, name, phone, address, payment_method, items} = req.body;
+    const {username=null, email, name, phone, address, payment_method, items} = req.body;
 
     //1- insert order
     const total = (await getSubtotal(items) * 80 / 100) + 15;
